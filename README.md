@@ -1,8 +1,10 @@
 #### Установка зависимостей:
 ```sh
 sudo apt install v4l-utils
-sudo apt install v4l2loopback-utils
+sudo apt-get install v4l2loopback-source module-assistant
+sudo module-assistant auto-install v4l2loopback-source
 ```
+https://github.com/v4l2loopback/v4l2loopback?tab=readme-ov-file#DISTRIBUTIONS
 
 
 #### Перед началом работы:
