@@ -2,6 +2,8 @@
 . config.cfg
 echo "Started:" `date`
 
+v4l2-ctl --set-ctrl auto_exposure=1 #turn auto exposure control OFF
+
 [ -e ./$test_directory ] || mkdir ./$test_directory #create ./test_directory if doesnt exist 
 
 for i in {100..1200..100}
