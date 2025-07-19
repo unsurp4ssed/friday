@@ -1,3 +1,10 @@
+#### Установка зависимостей:
+```sh
+sudo apt install v4l-utils
+sudo apt install v4l2loopback-utils
+```
+
+
 #### Перед началом работы:
 ```sh
 ./init.sh
