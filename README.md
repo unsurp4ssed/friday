@@ -1,9 +1,16 @@
 #### Установка зависимостей:
 ```sh
 sudo apt install v4l-utils
+sudo apt install ffmpeg
+```
+
+```
+sudo apt install v4l2loopback-dkms
+```
+ИЛИ
+```
 sudo apt-get install v4l2loopback-source module-assistant
 sudo module-assistant auto-install v4l2loopback-source
-sudo apt install ffmpeg
 ```
 https://github.com/v4l2loopback/v4l2loopback?tab=readme-ov-file#DISTRIBUTIONS
 
