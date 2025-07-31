@@ -4,7 +4,7 @@
 
 if [ ! $# -eq 0 ] 
   then
-    photo_filename = "$1"
+    photo_filename="$1"
 fi
 
 echo "Started:" `date`
