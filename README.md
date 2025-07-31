@@ -17,6 +17,10 @@ https://github.com/v4l2loopback/v4l2loopback?tab=readme-ov-file#DISTRIBUTIONS
 
 #### Перед началом работы:
 ```sh
+chmod 777 *.sh
+```
+
+```sh
 ./init.sh
 ```
 
