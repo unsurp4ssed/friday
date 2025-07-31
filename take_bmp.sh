@@ -1,6 +1,4 @@
 #!/bin/bash
-chmod +x "$0"
-
 . config.cfg
 
 if [ ! $# -eq 0 ] 
