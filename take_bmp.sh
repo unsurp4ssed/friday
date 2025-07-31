@@ -2,7 +2,7 @@
 
 . config.cfg
 
-if ![ $# -eq 0 ] 
+if [ ! $# -eq 0 ] 
   then
     photo_filename = "$1"
 fi
