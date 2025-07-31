@@ -16,12 +16,9 @@ https://github.com/v4l2loopback/v4l2loopback?tab=readme-ov-file#DISTRIBUTIONS
 
 
 #### Перед началом работы:
+Если ошибка в духе "input/output error"/"cannot access /dev/video2"
 ```sh
 chmod 777 *.sh
-```
-
-```sh
-./init.sh
 ```
 
 #### Сделать 1 фотографию
