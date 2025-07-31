@@ -16,9 +16,10 @@ echo -n "Exposure setting: $exposure..."
 v4l2-ctl --set-ctrl exposure_time_absolute=$exposure
 echo -e " done."
 
-
+if ! v4l2-ctl --list-devices | grep "Dummy" > /dev/null #check if dummy camera was already created
+then
 sudo modprobe v4l2loopback #create dummy camera device
-
+fi
 
 if ! pgrep -x "ffmpeg" > /dev/null #check if ffmpeg stream to dummy camera is running
 then
