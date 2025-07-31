@@ -16,7 +16,7 @@ do
     echo -n "Exposure setting: $exp..."
     v4l2-ctl --set-ctrl exposure_time_absolute=$exp
 
-    for gain in {0..50..1}
+    for gain in {0..9..1} {10..50..5}
     do
     echo -n "    Gain setting: $gain..."
       if ! pgrep -x "ffmpeg" > /dev/null #check if ffmpeg stream to dummy camera is running
