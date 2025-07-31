@@ -16,8 +16,9 @@ do
     echo -n "Exposure setting: $exp..."
     v4l2-ctl --set-ctrl exposure_time_absolute=$exp
 
-  for gain in {$seq (0.1..0.1..1)} {1..10..1} {10..100..10} {100..1000..100}
-  do
+    for gain in $(seq 0.1 0.1 1) {1..10..1} {10..100..10} {100..1000..100}
+    do
+    echo -n "    Gain setting: $gain..."
       if ! pgrep -x "ffmpeg" > /dev/null #check if ffmpeg stream to dummy camera is running
       then
           #copy stream from real camera to dummy
@@ -25,9 +26,7 @@ do
       fi
       #save a frame in bmp
       ffmpeg -f video4linux2 -video_size 1920x1080 -input_format yuyv422 -i /dev/video2 -c:v bmp -f image2 -pix_fmt bgr24 -frames:v 1 pipe:1 > $test_directory/test_exp$exp.gain$gain.bmp -hide_banner -loglevel error
-  done
-
-
+    done
     echo -e " done."
 done
 
