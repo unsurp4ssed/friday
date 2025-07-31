@@ -1,5 +1,4 @@
 #!/bin/bash
-chmod +x "$0"
 . config.cfg
 echo "Started:" `date`
 
