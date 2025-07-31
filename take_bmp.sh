@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod u+x "$0"
+chmod +x "$0"
 
 . config.cfg
 
