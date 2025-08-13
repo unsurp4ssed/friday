@@ -6,6 +6,11 @@ if ! v4l2-ctl --list-devices | grep "Dummy" > /dev/null #check if dummy camera w
 then
 sudo modprobe v4l2loopback #create dummy camera device
 fi
+if ! pgrep -x "ffmpeg" > /dev/null #check if ffmpeg stream to dummy camera is running
+    then
+      #copy stream from real camera to dummy
+        ffmpeg -f video4linux2 -video_size 1920x1080 -input_format yuyv422 -i /dev/video0 -codec copy -f video4linux2 /dev/video2 -hide_banner -loglevel error &
+    fi
 
 v4l2-ctl --set-ctrl auto_exposure=1 #turn auto exposure control OFF
 
@@ -19,11 +24,6 @@ do
     for gain in {0..9..1} {10..50..5}
     do
     echo -n "    Gain setting: $gain..."
-      if ! pgrep -x "ffmpeg" > /dev/null #check if ffmpeg stream to dummy camera is running
-      then
-          #copy stream from real camera to dummy
-          ffmpeg -f video4linux2 -video_size 1920x1080 -input_format yuyv422 -i /dev/video0 -codec copy -f video4linux2 /dev/video2 -hide_banner -loglevel error &
-      fi
       #save a frame in bmp
       ffmpeg -f video4linux2 -video_size 1920x1080 -input_format yuyv422 -i /dev/video2 -c:v bmp -f image2 -pix_fmt bgr24 -frames:v 1 pipe:1 > $test_directory/test_exp$exp.gain$gain.bmp -hide_banner -loglevel error
       echo -e " done."
