@@ -29,7 +29,7 @@ chmod 777 *.sh
 #### Сделать фотографии на всех значениях времени экспозиции и усиления
 Фото будут сохранены в test_directory из config.cfg (test по умолчанию)
 ```sh
-./test_exp_n_gain.sh
+./test_exp-n-gain.sh
 ```
 
 
