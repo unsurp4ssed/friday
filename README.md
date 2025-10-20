@@ -1,4 +1,4 @@
-#### Установка зависимостей:
+<!-- #### Установка зависимостей:
 ```sh
 sudo apt install v4l-utils
 sudo apt install ffmpeg
@@ -14,7 +14,7 @@ sudo module-assistant auto-install v4l2loopback-source
 ```
 https://github.com/v4l2loopback/v4l2loopback?tab=readme-ov-file#DISTRIBUTIONS
 
-
+-->
 #### Перед началом работы:
 Если ошибка в духе "input/output error"/"cannot access /dev/video2"
 ```sh
