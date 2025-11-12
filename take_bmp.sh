@@ -30,7 +30,9 @@ echo "done"
 echo -n "Exposure setting: $exposure..."
 v4l2-ctl --device $device --set-ctrl exposure_time_absolute=$exposure
 echo -e " done."
-
+echo -n "Gain setting: $gain..."
+v4l2-ctl --device $device --set-ctrl gain=$gain
+echo -e " done."
 
 ffmpeg -f video4linux2 -video_size 1920x1080 -input_format yuyv422 -i $device -c:v bmp -f image2 -pix_fmt bgr24 -frames:v 1 pipe:1 > $photo_filename -hide_banner -loglevel error 
 
