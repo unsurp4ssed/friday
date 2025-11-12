@@ -36,6 +36,7 @@ do
 	v4l2-ctl --device $device --set-ctrl auto_exposure=1 #1 - manual exposure mode 
 	#setting exposure from config file
 	v4l2-ctl --device $device --set-ctrl exposure_time_absolute=$exposure
+	v4l2-ctl --device $device --set-ctrl gain=$gain
 
 	ffmpeg -f video4linux2 -video_size 1920x1080 -input_format yuyv422 -i $device -c:v bmp -f image2 -pix_fmt bgr24 -frames:v 1 pipe:1 > ./$photos_path/$photo_filename -hide_banner -loglevel error 
 
